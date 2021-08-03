@@ -1,10 +1,15 @@
 import React from 'react'
-import { AppContainer } from './components/AppContainer'
+import Home from './components/Home'
+import Cadastro from './components/Cadastro'
 
-function App() {
-	return (
-        <AppContainer />
-	)
+
+export default class App extends React.Component{
+	render(){
+		return(
+			<div>
+			
+				
+			</div>
+		)
+	}
 }
-
-export default App
