@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import ListaDeServicos from './ListaDeServicos'
+import Cadastro from './Cadastro'
 
 const CentralizarHome = styled.div`
 display: flex;
@@ -8,8 +10,11 @@ align-items: center;
 
 `   
 
-export default class Home extends React.Component{
+ class Home extends React.Component{
+
+
     render(){
+        
         return(
             <CentralizarHome>
             <div>
@@ -17,11 +22,18 @@ export default class Home extends React.Component{
               <h1>LabNinjas</h1>
               <br/>
               <h3>O talento certo no momento certo</h3>
-            <button>Quero ser um ninja</button>
-            <button>Contratar um ninja</button>
+            <button onClick = {() => this.props.mudarTela("Quero ser um ninja")}>Quero ser um ninja</button>
+            <button onClick = {() => this.props.mudarTela("Contratar um ninja")}>Contratar um ninja</button>
 
             </div>
+
+            
             </CentralizarHome>
+        
+         
         )
+
     }
 }
+
+export default Home;
