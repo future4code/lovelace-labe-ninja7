@@ -25,7 +25,7 @@ const Header = (props) => {
     
         return(
             <HeaderContainer> 
-            <h2>LABNINJA</h2>
+            <h2>LABENINJA</h2>
             <button onClick = {() => props.mudarTela("Home")} >Home</button>
             <button onClick = {() => props.mudarTela("Carrinho")} >Carrinho</button>
 
