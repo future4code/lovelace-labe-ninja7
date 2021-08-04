@@ -43,7 +43,7 @@ class App extends React.Component {
 
 		const renderizaCardProduto = () => {
 			if(this.state.telaAtual === "Ver detalhes"){
-				return <CardProduto mudarTela = {this.mudarTela}/>
+				return <DetalheServico/>
 			} else if (this.state.telaAtual === "Adicionar ao Carrinho"){
 
 			}
@@ -54,6 +54,8 @@ class App extends React.Component {
 		return (
 			
 			<div>
+
+				
 			<Header
 			mudarTela = {this.mudarTela}
 			/>
