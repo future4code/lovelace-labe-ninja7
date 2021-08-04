@@ -56,10 +56,18 @@ class ListaDeServicos extends React.Component {
 			
 			
 			<ListaDeServicosContainer>
-                <h2>Lista de serviços cadastrados</h2>
-			{conjuntoJobs}
-
-            
+            <input type="text" value =" " placeholder="Valor Mínimo" />
+            <input type="text" value =" " placeholder="Valor Máximo"/>
+            <input type="text" value =" " placeholder="Buscar Título ou Descrição"/>
+            <select name="info[]" size="1" >
+            <option value="">Sem Ordenação</option>
+            <option value="">Menor Valor</option>
+            <option value="">Maior Valor</option>
+            <option value="">Título</option>
+            <option value="">Prazo</option>
+            </select>
+              <h2>Lista de serviços cadastrados</h2>
+			          {conjuntoJobs}
 
             </ListaDeServicosContainer>
 			
