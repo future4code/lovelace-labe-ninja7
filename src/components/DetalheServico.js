@@ -28,3 +28,4 @@ const DetalheServico = (props) => {
     ) 
              
 }
+export default DetalheServico;
