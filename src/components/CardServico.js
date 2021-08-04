@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import ListaDeServicos from './ListaDeServicos';
 
-const CardProdutoContainer = styled.div`
+const CardServicoContainer = styled.div`
     margin: 20px;
     display: flex;
     align-items: center;
@@ -10,24 +10,22 @@ const CardProdutoContainer = styled.div`
     border: 1px solid black;
 `
 
-const CardProduto = (props) => {
+const CardServico = (props) => {
     
     return (
-        <CardProdutoContainer>
-
-<div>
-            <div> {props.title} </div>
-            <div> {props.description} </div>
-            <div> {props.price} </div>
+        <CardServicoContainer>
 
             
-            </div>
+            <div> Titulo: {props.title} </div>
+            <div> Preço: {props.price} </div>
+            <div> Prazo: {props.prazo} </div>
+                  
           
           <button onClick = {() => props.mudarTela("Ver detalhes")}> Ver detalhes</button>
           <button  onClick = {() => props.mudarTela("Adicionar ao Carrinho")}> Adicionar ao Carrinho</button>
-        </CardProdutoContainer>
+        </CardServicoContainer>
       )
              
 }
 
-export default CardProduto;
+export default CardServico;
