@@ -5,6 +5,10 @@ import React from 'react'
     return (
       <div>
         <p>CARRINHO VAZIO</p>
+        <br></br>
+        <p><b>Valor Total: </b>R$</p>
+        <button onClick = {""} >Finalizar Compra</button>
+        <button onClick = {""} >Voltar Para Lista</button>
       </div>
     )
   }
