@@ -18,9 +18,9 @@ export default class Cadastro extends React.Component{
                 <h1>Cadastre o seu serviço</h1>
 
             
-            <input  type="text" placeholder="Titulo" />
+            <input  type="text" placeholder="Título" />
             <br/><br/>
-            <input type="text" placeholder="Descição"/>
+            <input type="text" placeholder="Descrição"/>
             <br/><br/>
             <input type="text" placeholder="Preço"/>
             <br/><br/>
@@ -38,7 +38,7 @@ export default class Cadastro extends React.Component{
             
             <input type="date"/>
             <br/><br/>
-            <button>Cadastrar serviço</button>
+            <button>Cadastrar Serviço</button>
             
             </div>
             </CentralizarCadastro>

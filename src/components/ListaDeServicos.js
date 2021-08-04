@@ -42,10 +42,15 @@ class ListaDeServicos extends React.Component {
 
 	render(){
         const conjuntoJobs = this.state.jobs.map((job) => {
-            return <li> {job.title} {job.description} {job.price} {job.paymentMethods} 
+            return <div><b>Serviço:</b> {job.title} 
+            <br></br>
+            <b>Descrição: </b>{job.description}
+            <br></br> 
+            <b>R$: </b>{job.price}
+            <br></br>
+            <b>Tipo de Pagamento: </b>{job.paymentMethods}   
+            </div>
             
-                
-            </li>
         })
 		return (
 			

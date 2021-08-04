@@ -19,7 +19,7 @@ align-items: center;
             <CentralizarHome>
             <div>
          
-              <h1>LabNinjas</h1>
+              <h1>LabeNinjas</h1>
               <br/>
               <h3>O talento certo no momento certo</h3>
             <button onClick = {() => this.props.mudarTela("Quero ser um ninja")}>Quero ser um ninja</button>
