@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import ListaDeServicos from './ListaDeServicos';
 
 const CardProdutoContainer = styled.div`
     margin: 20px;
@@ -13,9 +14,15 @@ const CardProduto = (props) => {
     
     return (
         <CardProdutoContainer>
-          <p>Serviço</p> <br></br>
-          <p>preço:</p>
-          <p>prazo:</p>
+
+<div>
+            <div> {props.title} </div>
+            <div> {props.description} </div>
+            <div> {props.price} </div>
+
+            
+            </div>
+          
           <button onClick = {() => props.mudarTela("Ver detalhes")}> Ver detalhes</button>
           <button  onClick = {() => props.mudarTela("Adicionar ao Carrinho")}> Adicionar ao Carrinho</button>
         </CardProdutoContainer>
