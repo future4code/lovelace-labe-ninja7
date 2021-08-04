@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
+import CardProduto from './CardProduto';
 
 
 const ListaDeServicosContainer = styled.div`
@@ -39,16 +40,18 @@ class ListaDeServicos extends React.Component {
     }
 
 
-
 	render(){
+
         const conjuntoJobs = this.state.jobs.map((job) => {
-            return <div><b>Serviço:</b> {job.title} 
+            return <div>
+              <CardProduto/>
+              {/* <b>Serviço:</b> {job.title} 
             <br></br>
             <b>Descrição: </b>{job.description}
             <br></br> 
             <b>R$: </b>{job.price}
             <br></br>
-            <b>Tipo de Pagamento: </b>{job.paymentMethods}   
+            <b>Tipo de Pagamento: </b>{job.paymentMethods}    */}
             </div>
             
         })

@@ -6,6 +6,7 @@ import  Home from './components/Home'
 import Carrinho from './components/Carrinho'
 import Header from './components/Header'
 import Cadastro from './components/Cadastro'
+import CardProduto from './components/CardProduto'
 
 
 class App extends React.Component {
@@ -40,15 +41,24 @@ class App extends React.Component {
             }
         }
 
+		const renderizaCardProduto = () => {
+			if(this.state.telaAtual === "Ver detalhes"){
+				return <CardProduto mudarTela = {this.mudarTela}/>
+			} else if (this.state.telaAtual === "Adicionar ao Carrinho"){
+
+			}
+		}
+
+		
+
 		return (
 			
 			<div>
 			<Header
 			mudarTela = {this.mudarTela}
 			/>
-			 
-			
-			
+		
+			{renderizaCardProduto()}
             {renderizaTelaAtual()}
 			{renderizaTela()}
             
