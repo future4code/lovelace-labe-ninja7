@@ -6,7 +6,8 @@ import  Home from './components/Home'
 import Carrinho from './components/Carrinho'
 import Header from './components/Header'
 import Cadastro from './components/Cadastro'
-import CardProduto from './components/CardProduto'
+
+
 
 
 class App extends React.Component {
@@ -29,7 +30,9 @@ class App extends React.Component {
 				mudarTela = {this.mudarTela}
 				/>
 			} else if(this.state.telaAtual === "Carrinho"){
-				return <Carrinho/>
+				return <Carrinho
+				mudarTela = {this.mudarTela}
+				/>
 			}
 		}
 
@@ -37,17 +40,19 @@ class App extends React.Component {
             if(this.state.telaAtual === "Quero ser um ninja"){
                 return <Cadastro/>
             }else if(this.state.telaAtual === "Contratar um ninja"){
-                return <ListaDeServicos/>
-            }
+                return <ListaDeServicos
+				mudarTela = {this.mudarTela}
+				/>
+            }else if(this.state.telaAtual === "Ver detalhes"){
+				return <DetalheServico
+				mudarTela = {this.mudarTela}
+				/>
+			}else if (this.state.telaAtual === "ListaDeServicos"){
+					return <ListaDeServicos/>
+				}
         }
 
-		const renderizaCardProduto = () => {
-			if(this.state.telaAtual === "Ver detalhes"){
-				return <DetalheServico/>
-			} else if (this.state.telaAtual === "Adicionar ao Carrinho"){
-
-			}
-		}
+		
 
 		
 
@@ -60,7 +65,7 @@ class App extends React.Component {
 			mudarTela = {this.mudarTela}
 			/>
 		
-			{renderizaCardProduto()}
+			
             {renderizaTelaAtual()}
 			{renderizaTela()}
             

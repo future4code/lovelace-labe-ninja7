@@ -4,8 +4,9 @@ import styled from 'styled-components'
 
 
 const CardItemCarrinhoContainer = styled.div`
-  border: 2px solid black ;
-  display: flex;
+  
+  display: grid;
+  
   justify-content: space-around;
   margin-top: 40px;
     
