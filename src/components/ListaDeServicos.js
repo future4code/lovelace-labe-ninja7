@@ -3,7 +3,8 @@ import styled from "styled-components";
 import CardServico from './CardServico';
 import Carrinho from './Carrinho';
 import DetalheServico from './DetalheServico';
-
+import axios from 'axios'
+import { baseUrl, headers } from "../constantes/index";
 
 const ListaDeServicosContainer = styled.div`
  
@@ -16,34 +17,22 @@ class ListaDeServicos extends React.Component {
 
       telaAtual: "ListaDeServicos",
       
-        jobs: [
-          {
-            "id": "efed9385-cf87-4f0e-a121-465384b3f2e4",
-            "title": "Cortar a grama",
-            "description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
-            "price": 40,
-            "paymentMethods": [
-              "PayPal",
-              "boleto"
-            ],
-            "dueDate": "12/08/26",
-            "taken": false
-          },
-          {
-            "id": "efed9385-cf87-4f0e-a121-465384b3f2e4",
-            "title": "Consertar o telhado",
-            "description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
-            "price": 40,
-            "paymentMethods": [
-              "PayPal",
-              "boleto"
-            ],
-            "dueDate": "20/05/21",
-            "taken": true
-          },
-          ]
+        jobs: []
     }
 
+    componentDidMount =() => {
+      this.pegarTodosServicos()
+    }
+
+    pegarTodosServicos = () => {
+      axios.get(`${baseUrl}/jobs`, headers)
+      .then((res)=> {
+        console.log(res)
+       this.setState({jobs: res.data.jobs} )
+    }).catch((err)=> {
+      console.log(err.response)
+    })
+    }
 
     mudarTela = (tela) => {
       this.setState( {telaAtual: tela})
@@ -54,7 +43,9 @@ class ListaDeServicos extends React.Component {
       const renderizaTelaAtual = () => {
         if(this.state.telaAtual === "Ver detalhes"){
           return <DetalheServico
+          jobs = {this.state.jobs}
           mudarTela = {this.mudarTela}
+          
           />
         }else if( this.state.telaAtual === "Adicionar ao Carrinho"){
           return <Carrinho/>
@@ -69,7 +60,7 @@ class ListaDeServicos extends React.Component {
               title = {job.title}
               prazo = {job.dueDate}
               price = {job.price}
-             
+              jobId = {job.id}
                        
               />        
               

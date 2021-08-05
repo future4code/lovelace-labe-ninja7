@@ -12,18 +12,22 @@ import Cadastro from './components/Cadastro'
 
 class App extends React.Component {
 	state = {
-		telaAtual : "Home"
+		telaAtual : "Home",
+		jobsId: ""
 		
 	  }
 
-	  mudarTela = (tela) => {
-	this.setState( {telaAtual: tela})
+	  mudarTela = (tela, jobsId) => {
+	this.setState( {
+		telaAtual: tela,
+		jobsId: jobsId
+	})
 }
 	
 	
 	
 	render(){
-
+		console.log(this.state.jobsId)
 		const renderizaTelaAtual = () => {
 			if(this.state.telaAtual === "Home"){
 				return <Home 
@@ -46,6 +50,7 @@ class App extends React.Component {
             }else if(this.state.telaAtual === "Ver detalhes"){
 				return <DetalheServico
 				mudarTela = {this.mudarTela}
+				jobsId = {this.state.jobsId}
 				/>
 			}else if (this.state.telaAtual === "ListaDeServicos"){
 					return <ListaDeServicos/>

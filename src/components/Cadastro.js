@@ -57,7 +57,8 @@ export default class Cadastro extends React.Component{
         axios.post(`${baseUrl}/jobs`, body, headers)
 
         .then((res) => {
-            console.log(res)
+            //console.log(res)
+            alert("Serviço adicionado com sucesso")
           
         })
         .catch((err) => {
@@ -81,7 +82,7 @@ export default class Cadastro extends React.Component{
             <br/><br/>
            
             
-            <select value={this.state.inputMetodoPagamentoValue} onChange={this.changeInputMetodoPagamentoValue} multiple name="select" >
+            <select value multiple  >
             <option>PayPal</option>
             <option>boleto</option>
             
