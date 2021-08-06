@@ -18,10 +18,10 @@ const BordaFinal = styled.div`
 export default class Cadastro extends React.Component{
 
     state = {
-       inputTituloValue: "",
-        inputDescricaoValue: "",
-        inputPrecoValue: "",
-        inputDataValue: "",
+       inputTituloValue: " ",
+        inputDescricaoValue: " ",
+        inputPrecoValue: " ",
+        inputDataValue: " ",
         inputMetodoPagamentoValue: []
     }
 
@@ -57,7 +57,7 @@ export default class Cadastro extends React.Component{
         }
 
         axios.post(`${baseUrl}/jobs`, body, headers)
-
+        
         .then((res) => {
             console.log(res)
             alert(`O serviço ${this.state.inputTituloValue} foi criado com sucesso!`)
@@ -68,7 +68,7 @@ export default class Cadastro extends React.Component{
                 inputDataValue: "",
                 inputMetodoPagamentoValue: []
             })
-          
+
         })
         .catch((err) => {
             console.log(err.response)
@@ -91,8 +91,7 @@ export default class Cadastro extends React.Component{
             <br/><br/>
             <input value={this.state.inputPrecoValue} onChange={this.changeInputPrecoValue} type="number" placeholder="Preço"/>
             <br/><br/>
-           
-            
+
             <select value={this.state.inputMetodoPagamentoValue} onChange={this.changeInputMetodoPagamentoValue} multiple name="select" >
             <option>PayPal</option>
             <option>boleto</option>

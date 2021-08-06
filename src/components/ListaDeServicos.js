@@ -3,64 +3,35 @@ import styled from "styled-components";
 import CardServico from './CardServico';
 import Carrinho from './Carrinho';
 import DetalheServico from './DetalheServico';
-
-
+import axios from 'axios'
+import { baseUrl, headers } from "../constantes/index";
 const ListaDeServicosContainer = styled.div`
- 
 `
-
-
 class ListaDeServicos extends React.Component {
-
     state = {
-
       telaAtual: "ListaDeServicos",
-      
-        jobs: [
-          {
-            "id": "efed9385-cf87-4f0e-a121-465384b3f2e4",
-            "title": "Cortar a grama",
-            "description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
-            "price": 40,
-            "paymentMethods": [
-              "PayPal",
-              "boleto"
-            ],
-            "dueDate": "12/08/26",
-            "taken": false
-          },
-          {
-            "id": "efed9385-cf87-4f0e-a121-465384b3f2e4",
-            "title": "Consertar o telhado",
-            "description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
-            "price": 40,
-            "paymentMethods": [
-              "PayPal",
-              "boleto"
-            ],
-            "dueDate": "20/05/21",
-            "taken": true
-          },
-          ]
+        jobs: [],
+        jobsId: ""
     }
-
-
-    mudarTela = (tela) => {
-      this.setState( {telaAtual: tela})
+    componentDidMount =() => {
+      this.pegarTodosServicos()
     }
-
-	render(){
-
-      const renderizaTelaAtual = () => {
-        if(this.state.telaAtual === "Ver detalhes"){
-          return <DetalheServico
-          mudarTela = {this.mudarTela}
-          />
-        }else if( this.state.telaAtual === "Adicionar ao Carrinho"){
-          return <Carrinho/>
-        }
-      }
-   
+    pegarTodosServicos = () => {
+      axios.get(`${baseUrl}/jobs`, headers)
+      .then((res)=> {
+        console.log(res)
+       this.setState({jobs: res.data.jobs} )
+    }).catch((err)=> {
+      console.log(err.response)
+    })
+    }
+    mudarTela = (tela, jobsId) => {
+      this.setState( {
+        telaAtual: tela,
+        jobsId: jobsId
+      })
+    }
+  render(){
       //renderizando a lista de servicos na tela e passando por props o que eu quero que apareça no card de serviços.
         const conjuntoJobs = this.state.jobs.map((job) => {
             return <CardServico
@@ -69,18 +40,10 @@ class ListaDeServicos extends React.Component {
               title = {job.title}
               prazo = {job.dueDate}
               price = {job.price}
-             
-                       
               />        
-              
-                       
         })
-
-      
-		return (
-			
-			
-			<ListaDeServicosContainer>
+    return (
+      <ListaDeServicosContainer>
             <input type="text" value ="" placeholder="Valor Mínimo" />
             <input type="text" value ="" placeholder="Valor Máximo"/>
             <input type="text" value ="" placeholder="Buscar Título ou Descrição"/>
@@ -92,16 +55,9 @@ class ListaDeServicos extends React.Component {
             <option value="">Prazo</option>
             </select>
               <h2>Lista de serviços cadastrados</h2>
-			          {conjuntoJobs}
-                 {renderizaTelaAtual()}
+                {conjuntoJobs}
             </ListaDeServicosContainer>
-			
-		)
-
-	}
-
-
-	
+    )
+  }
 }
-
 export default ListaDeServicos;
