@@ -18,10 +18,10 @@ const BordaFinal = styled.div`
 export default class Cadastro extends React.Component{
 
     state = {
-       inputTituloValue: "",
-        inputDescricaoValue: "",
-        inputPrecoValue: "",
-        inputDataValue: "",
+       inputTituloValue: " ",
+        inputDescricaoValue: " ",
+        inputPrecoValue: " ",
+        inputDataValue: " ",
         inputMetodoPagamentoValue: []
     }
 
