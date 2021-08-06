@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import ListaDeServicos from './ListaDeServicos';
 
 const CardServicoContainer = styled.div`
-    margin: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border: 1px solid black;
+
+border: 1px solid black;
+background-color: lightgray;
+padding: 0 16px 16px 16px;
+margin: 12px;
 `
+
 
 const CardServico = (props) => {
     
@@ -16,9 +17,9 @@ const CardServico = (props) => {
         <CardServicoContainer>
 
             
-            <div> Titulo: {props.title} </div>
-            <div> Preço: {props.price} </div>
-            <div> Prazo: {props.prazo} </div>
+            <h3> Titulo: {props.title} </h3>
+            <p> Preço: R${props.price} </p>
+            <div> Prazo: {props.dueDate} </div>
                   
           
           <button onClick = {() => props.mudarTela("Ver detalhes")}> Ver detalhes</button>
