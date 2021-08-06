@@ -14,26 +14,16 @@ const DetalheServicoContainer = styled.div`
 class DetalheServico extends React.Component{
     state = {
        job: [ 
-        {
-            "id": "c7b089b5-dcdc-4de3-aa88-d7f59f1a8df4",
-            "title": "tocar fogo ",
-            "description": "queimo caixa dágua",
-            "price": 0,
-            "paymentMethods": [
-                "PayPal",
-                "boleto"
-            ],
-            "dueDate": "2021-08-18T00:00:00.000Z",
-            "taken": false
-        }
+        {}
     ] 
     }
     componentDidMount = () => {
         this.pegarServicoId()
     }
     pegarServicoId = (jobsId) => {
-        axios.get(`${baseUrl}/jobs/${jobsId}`, headers).then((res)=> {
-            console.log(res.data)
+        axios.get(`${baseUrl}/jobs/${jobsId}`, headers)
+        .then((res)=> {
+            console.log(res.data.id)
         }).catch((err) => {
             console.log(err.response.data.error)
             alert(err.response.data.error)
