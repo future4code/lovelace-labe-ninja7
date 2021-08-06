@@ -20,9 +20,9 @@ export default class Cadastro extends React.Component{
     state = {
        inputTituloValue: "",
         inputDescricaoValue: "",
-        inputPrecoValue: 0,
+        inputPrecoValue: "",
         inputDataValue: "",
-        inputMetodoPagamentoValue: ["PayPal", "boleto"]
+        inputMetodoPagamentoValue: []
     }
 
     changeInputTituloValue = (e) => {
@@ -42,14 +42,16 @@ export default class Cadastro extends React.Component{
     }
 
     changeInputMetodoPagamentoValue = (e) =>{
-        this.setState({inputMetodoPagamentoValue: e.target.value})
+        // achei na internet um modelo pra colocar o array no option
+        let value = Array.from(e.target.selectedOptions, option => option.value) 
+        this.setState({inputMetodoPagamentoValue: value})
     }
 
     criarServico = () =>{
         const body = {
             title: this.state.inputTituloValue,
             description: this.state.inputDescricaoValue,
-            price: this.state.inputPrecoValue,
+            price: Number(this.state.inputPrecoValue), // adicionei o local da onde colocar o number HAHHAA
             paymentMethods: this.state.inputMetodoPagamentoValue,
             dueDate: this.state.inputDataValue
         }
@@ -58,10 +60,20 @@ export default class Cadastro extends React.Component{
 
         .then((res) => {
             console.log(res)
+            alert(`O serviço ${this.state.inputTituloValue} foi criado com sucesso!`)
+            this.setState({
+                inputTituloValue: "",
+                inputDescricaoValue: "",
+                inputPrecoValue: "",
+                inputDataValue: "",
+                inputMetodoPagamentoValue: []
+            })
           
         })
         .catch((err) => {
             console.log(err.response)
+            alert("ERROR")
+
         })
     }
     
@@ -84,6 +96,9 @@ export default class Cadastro extends React.Component{
             <select value={this.state.inputMetodoPagamentoValue} onChange={this.changeInputMetodoPagamentoValue} multiple name="select" >
             <option>PayPal</option>
             <option>boleto</option>
+            <option>Cartão Débito</option>
+            <option>Cartão Crédito</option>
+            
             
             </select>
             <br/><br/>
